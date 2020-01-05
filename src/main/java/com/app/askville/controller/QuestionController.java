@@ -2,6 +2,7 @@ package com.app.askville.controller;
 
 
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -33,6 +34,12 @@ public class QuestionController {
 	@GetMapping("/questions/{id}")
 	public Optional<QuestionModel> getQuestionById(@PathVariable Long id) {
 		return questionRepository.findById(id);
+	}
+	
+	//Fetch all questions
+	@GetMapping("/questions")
+	public List<QuestionModel> getAllQuestions(){
+		return questionRepository.findAll();		
 	}
 
 }
